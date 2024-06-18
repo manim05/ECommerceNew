@@ -34,3 +34,4 @@ const calculateTotalAmount = (cartItems) => cartItems.reduce((total, item) => to
 
 
 export {updateCart,calculateTotalAmount};
+

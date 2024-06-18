@@ -1,12 +1,15 @@
 import React from 'react';
-import loadGif from '../assets/load.gif';
+// import loadGif from '../assets/load.gif';
+import { Box, CircularProgress } from '@mui/material';
 
 const Loader = () => {
   return (
-    <div style={styles.loader}>
-      <div className="spinner"></div>
-      <img src={loadGif} alt="Loading..." />
-      <p style={styles.loadingStyles}>Loading...</p>
+    <div>
+      {/* <div className="spinner"></div>
+      <img src={loadGif} alt="Loading..." /> */}
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <CircularProgress />
+      </Box>
     </div>
   );
 };

@@ -1,39 +1,92 @@
+// import React from 'react';
+// import './App.css';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+// import Homepage from './components/Homepage';
+// import Cart from './components/Cart';
+
+
+// function App() {
+
+//   const routePaths = [
+//     {
+//       routePath: "/",
+//       component: <Homepage/>
+//     },
+//     {
+//       routePath: "/cart",
+//       component: <Cart />
+//     },
+
+//   ]
+
+//   return (
+//     <Router>
+//     <div className="App">
+//       <div>
+//         <h1>E Commerce Website</h1>
+//         <Routes>
+//          {routePaths.map((route, index) => (
+//               <Route key={index} path={route.routePath} element={route.component} />
+//             ))}
+//         </Routes>
+//       </div>
+//     </div>
+//   </Router>
+//   );
+// }
+
+// export default App;
+
+
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
 import Homepage from './components/Homepage';
 import Cart from './components/Cart';
-
+import store from './components/Store';
+import {Example, ProductsTable} from './components/MaterialR';
 
 function App() {
-
   const routePaths = [
     {
-      routePath: "/",
-      component: <Homepage/>
+      routePath: '/',
+      component: <Homepage />,
     },
     {
-      routePath: "/cart",
-      component: <Cart />
+      routePath: '/cart',
+      component: <Cart />,
     },
-
-  ]
+    {
+      routePath: '/m',
+      component: <Example />,
+    },
+    {
+      routePath: '/ec',
+      component: <ProductsTable />,
+    }
+    
+  ];
 
   return (
-    <Router>
-    <div className="App">
-      <div>
-        <h1>E Commerce Website</h1>
-        <Routes>
-         {routePaths.map((route, index) => (
-              <Route key={index} path={route.routePath} element={route.component} />
-            ))}
-        </Routes>
-      </div>
-    </div>
-  </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <div>
+            <h1>E Commerce </h1>
+            <Routes>
+              {routePaths.map((route, index) => (
+                <Route key={index} path={route.routePath} element={route.component} />
+              ))}
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
