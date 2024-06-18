@@ -14,16 +14,16 @@ const Loader = () => {
   );
 };
 
-const styles = {
-  loader: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    height: '100vh',
-  },
-  loadingStyles : {
-    color: 'black'
-  }
-};
+// const styles = {
+//   loader: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     height: '100vh',
+//   },
+//   loadingStyles : {
+//     color: 'black'
+//   }
+// };
 
 export default Loader;
