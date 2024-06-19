@@ -7,6 +7,7 @@ const Product = ({ product }) => {
   const cartItem = cartItems.find(item => item.productId === product.id);
   const selectedCount = cartItem ? cartItem.quantity : 0;
 
+  
   const handleAddToCart = () => {
     dispatch({ type: 'ADD_TO_CART', payload: { productId: product.id, product } });
   };
