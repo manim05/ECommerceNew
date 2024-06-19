@@ -4,8 +4,6 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-
-
 import React, { useEffect, useState } from 'react';
 // import { MaterialReactTable } from 'material-react-table';
 import { Box, CircularProgress } from '@mui/material';
