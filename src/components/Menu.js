@@ -2,12 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-const Menu = ({ setSearchTerm, setSortOption, resetCart }) => {
+const Menu = ({resetCart }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm);
   const sortOption = useSelector(state => state.sortOption);
-//   const cartItems = useSelector(state => state.cart.cartItems);
 
   return (
     <div style={styles.menuContainer}>
@@ -72,16 +71,16 @@ const styles = {
     width: '25%',
   },
   resetButton: {
-            padding: '10px',
-            marginRight: '50px',
-            fontSize: '16px',
-            backgroundColor: 'red',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            width: '15%',
-        }
-    };
+    padding: '10px',
+    marginRight: '50px',
+    fontSize: '16px',
+    backgroundColor: 'red',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    width: '15%',
+  }
+};
     
 export default Menu;
