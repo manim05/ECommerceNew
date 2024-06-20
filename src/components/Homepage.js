@@ -6,6 +6,10 @@ import { sortByPriceAscending, sortByPriceDescending, filterProducts } from '../
 import Loader from './Loader';
 import useFetch from '../hooks/useFetch';
 
+
+// final
+
+
 const Homepage = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
