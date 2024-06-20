@@ -52,6 +52,7 @@ const rootReducer = (state = initialState, action) => {
           },
         };
       }
+
     case 'REMOVE_FROM_CART':
       const updatedCartItems = state.cart.cartItems
         .map(item =>
@@ -67,6 +68,7 @@ const rootReducer = (state = initialState, action) => {
           cartItems: updatedCartItems,
         },
       };
+      
     case 'RESET_CART':
       return {
         ...state,
