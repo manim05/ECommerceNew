@@ -43,9 +43,6 @@ const Homepage = () => {
   if (loading) return <Loader />;
   if (error) return <div>Error: {error.message}</div>;
 
-
-
-
   return (
     <div>
       <Menu

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Product = ({ product }) => {
@@ -7,21 +7,20 @@ const Product = ({ product }) => {
   const cartItem = cartItems.find(item => item.productId === product.id);
   const selectedCount = cartItem ? cartItem.quantity : 0;
 
-  
-  const handleAddToCart = () => {
+  const handleIncrement = useCallback(() => {
     dispatch({ type: 'ADD_TO_CART', payload: { productId: product.id, product } });
-  };
+  }, [dispatch, product]);
 
-  const handleIncrement = () => {
+
+  const handleAddToCart = useCallback(() => {
     dispatch({ type: 'ADD_TO_CART', payload: { productId: product.id, product } });
-  };
+  },[dispatch,product]);
 
-
-  const handleDecrement = () => {
+  const handleDecrement = useCallback(() => {
     if (selectedCount > 0) {
       dispatch({ type: 'REMOVE_FROM_CART', payload: product.id });
     } 
-  };
+  },[dispatch,product.id,selectedCount]);
 
   return (
     <div style={styles.productBox}>
@@ -32,18 +31,12 @@ const Product = ({ product }) => {
 
       {!!selectedCount ? (
         <div>
-          <button style={styles.operatorButton} onClick={handleDecrement}>
-            -
-          </button>
+          <button style={styles.operatorButton} onClick={handleDecrement}> - </button>
           <span>{selectedCount}</span>
-          <button style={styles.operatorButton} onClick={handleIncrement}>
-            +
-          </button>
+          <button style={styles.operatorButton} onClick={handleIncrement}> + </button>
         </div>
       ) : (
-        <button onClick={handleAddToCart} style={styles.cartButton}>
-          Add to Cart
-        </button>
+        <button onClick={handleAddToCart} style={styles.cartButton}> Add to Cart </button>
       )}
     </div>
   );
