@@ -6,6 +6,7 @@ import { sortByPriceAscending, sortByPriceDescending, filterProducts } from '../
 import Loader from './Loader';
 import useFetch from '../hooks/useFetch';
 
+import './styles.css'
 
 // final
 
@@ -47,7 +48,9 @@ const Homepage = () => {
 
       {!filteredProducts.length ? (<Loader />)
         :(
-          <div style={styles.gridContainer}>
+          <div className='gridContainer'
+                // style={styles.gridContainer}
+                >
             {filteredProducts.map(product => (
               <Product key={product.id} product={product} />
           ))}
@@ -57,13 +60,13 @@ const Homepage = () => {
   );
 };
 
-const styles = {
-  gridContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: '16px',
-  },
-};
+// const styles = {
+//   gridContainer: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(4, 1fr)',
+//     gap: '16px',
+//   },
+// };
 
 export default Homepage;
 

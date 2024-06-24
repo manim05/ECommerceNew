@@ -2,10 +2,17 @@ import React,{useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Product = ({ product }) => {
+
+
+  
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
   const cartItem = cartItems.find(item => item.productId === product.id);
   const selectedCount = cartItem ? cartItem.quantity : 0;
+
+
+
+
 
   const handleIncrement = useCallback(() => {
     dispatch({ type: 'ADD_TO_CART', payload: { productId: product.id, product } });
